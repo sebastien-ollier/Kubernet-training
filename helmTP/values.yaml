@@ -1,0 +1,13 @@
+wordpressUsername: admin
+wordpressPassword: password
+# replicaCount: 1
+service:
+  type: NodePort
+  nodePorts:
+    http: "32000"
+persistence:
+  enabled: false
+mariadb:
+  master:
+    persistence:
+      enabled: false
