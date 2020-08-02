@@ -1,0 +1,7 @@
+mkdir -p /data/mysql-volume
+mkdir /data/wordpress-volume
+
+
+kubectl config set-context --current --namespace=wordpress-env
+
+kubectl apply -f deployment-mysql.yml
