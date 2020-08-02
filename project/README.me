@@ -1,1 +1,17 @@
-test
+# Creation des repertoires pour le stockage des données persistentes
+mkdir -p /data/mysql-volume
+mkdir /data/wordpress-volume
+
+#creation d'un namespace dédié au projet : wordpress-env & mise par défaut
+kubectl apply -f namespace.yml
+kubectl config set-context --current --namespace=wordpress-env
+
+#Deploiement MySQL
+kubectl apply -f deployment-mysql.yml
+#Configuration du service MySQL ClusterIP port 3306
+kubectl apply -f service-mysql.yml
+
+#Deploiement wordpress
+kubectl apply -f deployment-wordpress.yml
+#Configuration du service WordressL NodePort port 30001
+kubectl apply -f service-wordpress.yml
